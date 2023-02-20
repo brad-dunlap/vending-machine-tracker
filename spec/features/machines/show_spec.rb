@@ -18,11 +18,14 @@ RSpec.describe 'When a user visits a vending machine show page', type: :feature 
   end
 
   scenario 'see the name and price of all of the snacks associated with that vending machine along with their price' do
-		save_and_open_page
 		expect(page).to have_content("Vodka Lemonade: $5.50")
 		expect(page).to have_content("Rum and Coke: $6.00")
 		expect(page).to have_content("Negroni: $8.25")
 		expect(page).to_not have_content("Smirnoff Ice: $1.50")
 		expect(page).to_not have_content("Natural Ice: $2.50")
   end
+
+	scenario 'see an average price for all of the snacks in that machine' do
+		expect(page).to have_content("Average Price: $6.58")
+	end
 end
